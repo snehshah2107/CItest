@@ -5,7 +5,7 @@
 	<apex:variable var="objId" value="{!Account.Id}"/>
 	
 <script>
-		// change to false to block multi file upload
+		// change to false to block multi file upload -- comment by jeff
 		var SUPPORT_MULTI_FILE = true;
 </script>
 
