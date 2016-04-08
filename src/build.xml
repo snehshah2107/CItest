@@ -17,6 +17,23 @@
         password="${sf.password}" 
         serverurl="${sf.serverurl}" 
         deployRoot="undeploy"/>
-    </target>    
+    </target>   
+    <macrodef name="git">
+    <attribute name="dir" default="" />
+    <attribute name="branch" default="master" />
+    <sequential>
+        <exec executable="git" dir="@{dir}">
+            <arg value="pull" />
+            <arg value="origin" />
+            <arg value="@{branch}" />
+        </exec>
+    </sequential>
+</macrodef>
+
+<target name="checkoutFromGit">
+    <echo>Issuing git pull from directory: ${git.dir}</echo>
+    <echo>Pulling from branch: ${git.branch}</echo>
+    <git dir="${git.dir}" branch="${git.branch}" />
+</target>
 
 </project>
